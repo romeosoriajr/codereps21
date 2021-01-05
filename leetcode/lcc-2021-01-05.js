@@ -18,10 +18,14 @@ function deleteDuplicates (head) {
       fast = fast.next;
     }
 
-    // move both pointers forward
+    // there are no duplicates between the slow and fast pointer
+    // move both forward;
     if (slow.next === fast) {
       slow = slow.next;
       fast = fast.next;
+
+    // there were duplicates found
+    // skip all duplicates by setting slow.next to fast.next
     } else {
       slow.next = fast.next;
       fast = slow.next;
