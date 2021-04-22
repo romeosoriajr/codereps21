@@ -1,18 +1,19 @@
 function combinationSum4(nums, target) {
-  var targets = new Array(target+1).fill(null);
+
+  var targets = Array(target+1).fill(0);
   targets[0] = 1;
 
   for (let i=0; i < targets.length; i++) {
     for (let j=0; j < nums.length; j++) {
       if (i - nums[j] >= 0) {
-        targets[i] += targets[i-nums[j]];
+        targets[i] += targets[i - nums[j]];
       }
     }
   }
 
   return targets[target];
-
 }
+
 function combinationSum4Recursive (nums, target) {
 
   if (target == 0) {
